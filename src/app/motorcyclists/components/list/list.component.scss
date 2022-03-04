@@ -1,0 +1,20 @@
+.image-module {
+  width: 40px;
+  height: 40px;
+  background-image: url("../../../../assets/images/delivery-man.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+table {
+  width: 100%;
+}
+
+.motorcyclists-container {
+  display: flex;
+  flex-direction: column;
+  .content {
+    height: 450px !important;
+  }
+}
+

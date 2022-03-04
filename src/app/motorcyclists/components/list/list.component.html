@@ -1,0 +1,53 @@
+<section class="motorcyclists-container">
+  <app-dashboard >
+    <div class="content">
+      <div class="d-flex justify-content-between">
+        <div>
+          <div class="d-flex align-items-center">
+            <div class="image-module"></div>
+            <h1 class="m-0 p-0 ml-2 mt-2">Motociclistas</h1>
+          </div>
+        </div>
+        <button mat-flat-button color="accent" (click)="onRegister()">
+          Registrar
+        </button>
+      </div>
+      <div class="row mt-4" *ngIf="motorcyclists$|async as motorcyclists">
+        <div class="col-12">
+          <table mat-table [dataSource]="motorcyclists" class="">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef> Nombre </th>
+              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="surnames">
+              <th mat-header-cell *matHeaderCellDef> Apellidos </th>
+              <td mat-cell *matCellDef="let element"> {{element.surnames}} </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="licenseNumber">
+              <th mat-header-cell *matHeaderCellDef> Licencia de conducir </th>
+              <td mat-cell *matCellDef="let element"> {{element.licenseNumber}} </td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="phone">
+              <th mat-header-cell *matHeaderCellDef> Telefono </th>
+              <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </app-dashboard>
+</section>

@@ -1,0 +1,62 @@
+.notification-container {
+  display: flex;
+  flex-direction: row;
+  align-content: stretch;
+  justify-content: stretch;
+  min-width: 100%;
+  height: 100%;
+
+  .snack-bar-icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .mat-icon {
+      width: 30px;
+      height: 30px;
+      font-size: 30px;
+    }
+  }
+
+  .snack-bar-message {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-content: stretch;
+    justify-content: stretch;
+    flex: 1;
+    padding: 0 0 0 16px;
+    word-break: break-word;
+    pointer-events: none;
+    font-size: 14px;
+  }
+
+  .mat-simple-snackbar-action {
+    display: flex;
+    align-items: center;
+
+    .default-dismiss-button {
+      border-radius: 100%;
+    }
+  }
+}
+
+@media (min-width: 601px) {
+  .custom-snackbar {
+    padding-right: 22px;
+
+    .snack-bar-icon-container {
+      width: 72px;
+
+      .mat-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 40px;
+      }
+    }
+
+    .snack-bar-message {
+      font-size: 16px;
+    }
+  }
+}

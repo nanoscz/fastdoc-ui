@@ -1,0 +1,19 @@
+<section
+        class="notification-container">
+    <div class="snack-bar-icon-container">
+        <mat-icon [svgIcon]="notificationIconMap.get(notificationConfig.type)"></mat-icon>
+    </div>
+    <div class="snack-bar-message">
+        {{ notificationConfig.message }}
+    </div>
+    <div class="mat-simple-snackbar-action">
+        <button mat-button (click)="dismissWithAction()" *ngIf="notificationConfig.action; else defaultDismissButton">
+            {{ notificationConfig.action }}
+        </button>
+        <ng-template #defaultDismissButton>
+            <button class="default-dismiss-button" mat-icon-button (click)="dismissWithAction()">
+              <mat-icon color="primary" aria-hidden="false">close</mat-icon>
+            </button>
+        </ng-template>
+    </div>
+</section>

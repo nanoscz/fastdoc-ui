@@ -1,0 +1,110 @@
+<section class="motorcyclists-container">
+  <app-dashboard>
+    <form class="mb-4" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-6">
+          <div class="d-flex align-items-center">
+            <div class="image-module"></div>
+            <h1 class="m-0 p-0 ml-2 mt-2">Conductor</h1>
+          </div>
+          <div class="mt-4 w-100" formGroupName="motorcyclist">
+            <div class="form-group">
+              <mat-form-field class="w-100" appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input matInput placeholder="Nombre" type="text" autocomplete="off" formControlName="name">
+              </mat-form-field>
+            </div>
+            <div class="form-group">
+              <mat-form-field class="w-100" appearance="outline">
+                <mat-label>Apellidos</mat-label>
+                <input matInput placeholder="Apellidos" type="text" autocomplete="off" formControlName="surnames">
+              </mat-form-field>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <div class="form-group">
+                  <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Licencia</mat-label>
+                    <input matInput placeholder="Numero de Licencia" type="text" autocomplete="off" formControlName="licenseNumber">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Telefono</mat-label>
+                    <input matInput placeholder="Telefono" type="text" autocomplete="off" formControlName="phone">
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <h5 class="ml-1 credentials">Credenciales</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <div class="form-group">
+                  <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Usuario</mat-label>
+                    <input matInput placeholder="Usuario" type="text" autocomplete="off" formControlName="login">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="form-group">
+                  <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput placeholder="Contraseña" type="password" autocomplete="off" formControlName="password">
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="d-flex align-items-center">
+            <div class="image-module1"></div>
+            <h1 class="m-0 p-0 ml-2 mt-2">Motociclista</h1>
+          </div>
+          <div class="mt-4 w-100" formGroupName="motorcycle">
+            <div class="form-group">
+              <mat-form-field class="w-100" appearance="outline">
+                <mat-label>Placa</mat-label>
+                <input matInput placeholder="Placa" type="text" autocomplete="off" formControlName="licensePlate">
+              </mat-form-field>
+            </div>
+            <div class="form-group">
+              <mat-form-field class="w-100" appearance="outline">
+                <mat-label>Modelo</mat-label>
+                <input matInput placeholder="Modelo" type="text" autocomplete="off" formControlName="model">
+              </mat-form-field>
+            </div>
+            <div class="form-group">
+              <mat-form-field class="w-100" appearance="outline">
+                <mat-label>Marca</mat-label>
+                <input matInput placeholder="Marca" type="text" autocomplete="off" formControlName="marca">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="d-flex justify-content-between">
+            <div></div>
+            <div class="actions">
+              <button mat-flat-button (click)="onCancel()">
+                Cancelar
+              </button>
+              <button type="submit" class="ml-2" mat-flat-button color="accent">
+                Guardar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </app-dashboard>
+</section>
