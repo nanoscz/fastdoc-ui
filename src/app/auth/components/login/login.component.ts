@@ -11,13 +11,8 @@ import { map, switchMap } from 'rxjs/operators';
 import { RoleService } from '../../../shared/services/role.service';
 import { SessionService } from '../../../shared/services/session.service';
 import { AuthService } from '../../services/auth.service';
+import { ROLE } from '../../../shared/types/Role';
 type Session = any;
-
-enum ROLE {
-  CLIENT = 1,
-  MOTORCYCLIST = 2,
-  EMPLOYEE = 3
-}
 
 @Component({
   selector: 'app-login',
@@ -46,6 +41,10 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  onRegister() {
+    this.route.navigate(['/auth/register'])
+  }
+
   onSubmit(): void {
     if (!this.form.valid) {
       return;
@@ -66,11 +65,26 @@ export class LoginComponent implements OnInit {
       }),
       switchMap((sessionRole: any) => {
         if (sessionRole.roleId === ROLE.CLIENT) {
-          return this.clientService.getOneByUserId(sessionRole.userId);
+          return this.clientService.getOneByUserId(sessionRole.userId).pipe(
+            map((data) => ({
+              ...data,
+              roleId: sessionRole.roleId
+            }))
+          );
         } else if (sessionRole.roleId === ROLE.MOTORCYCLIST) {
-          return this.motorcyclistService.getOneByUserId(sessionRole.userId);
+          return this.motorcyclistService.getOneByUserId(sessionRole.userId).pipe(
+            map((data) => ({
+              ...data,
+              roleId: sessionRole.roleId
+            }))
+          );
         } else {
-          return this.employeeService.getOneByUserId(sessionRole.userId);
+          return this.employeeService.getOneByUserId(sessionRole.userId).pipe(
+            map((data) => ({
+              ...data,
+              roleId: sessionRole.roleId
+            }))
+          );
         }
       })
     ).subscribe(

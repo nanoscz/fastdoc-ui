@@ -45,7 +45,7 @@ export class NewComponent implements OnInit {
       }),
       motorcycle: this.fb.group({
         licensePlate: ['', Validators.required],
-        model: ['', Validators.required],
+        color: ['', Validators.required],
         marca: ['', Validators.required]
       })
     });
@@ -71,14 +71,13 @@ export class NewComponent implements OnInit {
         surnames: motorcyclist.surnames,
         licenseNumber: motorcyclist.licenseNumber,
         phone: motorcyclist.phone,
-        position: { type: 'Point', coordinates: [0.0, 0.0]},
         userId: user.id
       }).pipe(
         catchError(() => throwError('Error al crear el motociclysta'))
       )),
       switchMap((motorcyclist: any) => this.motorcycleService.create({
         licensePlate: motorcycle.licensePlate,
-        model: motorcycle.model,
+        color: motorcycle.color,
         marca: motorcycle.marca,
         motorcyclistId: motorcyclist.id
       }).pipe(

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 // import { Session } from '../../shared/types/Session';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { ROLE } from '../types/Role';
 
 type Session = any;
 
@@ -14,6 +15,21 @@ export class SessionService {
   isLoggedIn(): boolean {
     const session = this.getSession() as Session;
     return !!(session);
+  }
+
+  isEmployee(): boolean {
+    const session = this.getSession() as Session;
+    return session.roleId === ROLE.EMPLOYEE;
+  }
+
+  isMotorcyclist(): boolean {
+    const session = this.getSession() as Session;
+    return session.roleId === ROLE.MOTORCYCLIST;
+  }
+
+  isClient(): boolean {
+    const session = this.getSession() as Session;
+    return session.roleId === ROLE.CLIENT;
   }
 
   setSession(session: Session): void {

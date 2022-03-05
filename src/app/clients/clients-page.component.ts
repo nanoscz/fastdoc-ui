@@ -10,7 +10,7 @@ import { ClientService } from '../shared/services/client.service';
 })
 export class ClientsPageComponent implements OnInit {
   clients$ = new BehaviorSubject<any>([]);
-  displayedColumns: string[] = ['name', 'surnames', 'licenseNumber', 'phone'];
+  displayedColumns: string[] = ['name', 'surnames', 'phone'];
   constructor(private router: Router, private clientService: ClientService) { }
 
   ngOnInit(): void {

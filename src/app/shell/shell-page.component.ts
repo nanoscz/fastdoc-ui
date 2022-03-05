@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { filter, map, shareReplay, tap } from 'rxjs/operators';
 import { Router, NavigationEnd } from '@angular/router';
 import { SessionService } from '../shared/services/session.service';
+import { ROLE } from '../shared/types/Role';
 
 @Component({
   selector: 'app-shell-page',
@@ -16,6 +17,7 @@ export class ShellPageComponent {
     clients: 'Clientes',
     motorcyclists: 'Motociclista'
   };
+  ROLE = ROLE;
   session$ = new BehaviorSubject<any>(null);
   currentRoute$ = new BehaviorSubject<string>('');
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
@@ -42,7 +44,6 @@ export class ShellPageComponent {
   }
 
   logout() {
-    console.log('logout');
     this.sessionService.clearSession();
     this.router.navigate(['auth/login']);
   }

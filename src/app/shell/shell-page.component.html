@@ -1,4 +1,4 @@
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenav-container" *ngIf="session$|async as session">
   <mat-sidenav #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
@@ -13,13 +13,13 @@
           <span class="mt-1 ml-2">Pedidos</span>
         </div>
       </a>
-      <a mat-list-item [routerLinkActive]="['menu-active']" [routerLink]="'/clients'">
+      <a mat-list-item [routerLinkActive]="['menu-active']" [routerLink]="'/clients'" *ngIf="session.roleId === ROLE.EMPLOYEE">
         <div class="item-menu">
           <div class="image-client"></div>
           <span class="mt-1 ml-2">Clientes</span>
         </div>
       </a>
-      <a mat-list-item [routerLinkActive]="['menu-active']" [routerLink]="'/motorcyclists'">
+      <a mat-list-item [routerLinkActive]="['menu-active']" [routerLink]="'/motorcyclists'" *ngIf="session.roleId === ROLE.EMPLOYEE">
         <div class="item-menu">
           <div class="image-motorcyclist"></div>
           <span class="mt-1 ml-2">Motociclistas</span>
@@ -39,7 +39,7 @@
       </button>
       <!-- <span>{{currentRoute$|async}}</span> -->
       <span class="example-spacer"></span>
-      <div *ngIf="session$|async as session">
+      <div>
           <span>{{session?.name}} {{session?.surnames}}</span>
       </div>
       <button mat-icon-button class="ml-2" type="button" (click)="logout()">

@@ -272,3 +272,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 @import "../node_modules/bootstrap/scss/utilities/text";
 @import "../node_modules/bootstrap/scss/utilities/visibility";
 @import "../node_modules/bootstrap/scss/utilities/spacing";
+
+.title {
+  font-weight: 500 !important;
+  color: rgb(160, 156, 156);
+}
