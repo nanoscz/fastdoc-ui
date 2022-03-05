@@ -118,9 +118,6 @@ export class NewComponent implements OnInit {
     ).subscribe(() =>  {
       this.router.navigate(['/orders/list'])
     })
-    console.log(this.form.value)
-    console.log(this.markerPositions)
-
   }
 
   addMarker(event: google.maps.MapMouseEvent) {

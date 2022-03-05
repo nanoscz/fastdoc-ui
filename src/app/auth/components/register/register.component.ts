@@ -60,6 +60,7 @@ export class RegisterComponent implements OnInit {
       }).pipe(
         map((data) => ({
           ...data,
+          clientId: data.id,
           roleId: ROLE.CLIENT
         }))
       ))

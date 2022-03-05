@@ -68,6 +68,7 @@ export class LoginComponent implements OnInit {
           return this.clientService.getOneByUserId(sessionRole.userId).pipe(
             map((data) => ({
               ...data,
+              clientId: data.id,
               roleId: sessionRole.roleId
             }))
           );
@@ -75,6 +76,7 @@ export class LoginComponent implements OnInit {
           return this.motorcyclistService.getOneByUserId(sessionRole.userId).pipe(
             map((data) => ({
               ...data,
+              motorcyclistId: data.id,
               roleId: sessionRole.roleId
             }))
           );
@@ -82,6 +84,7 @@ export class LoginComponent implements OnInit {
           return this.employeeService.getOneByUserId(sessionRole.userId).pipe(
             map((data) => ({
               ...data,
+              employeeId: data.id,
               roleId: sessionRole.roleId
             }))
           );
