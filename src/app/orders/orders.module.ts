@@ -10,11 +10,13 @@ import { HttpClientJsonpModule } from '@angular/common/http';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { NewComponent } from './components/new/new.component';
 import { ListComponent } from './components/list/list.component';
+import { AssignDialogComponent } from './components/assign-dialog/assign-dialog.component';
 @NgModule({
   declarations: [
     OrdersPageComponent,
     NewComponent,
-    ListComponent
+    ListComponent,
+    AssignDialogComponent
   ],
   imports: [
     CommonModule,

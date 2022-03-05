@@ -1,0 +1,22 @@
+<mat-dialog-content>
+  <h2>Detalle de pedido</h2>
+  <p>Fecha: {{data.date | date}}</p>
+  <p>Monto: {{data.payment}}</p>
+  <mat-form-field class="mt-4 w-100" appearance="outline">
+    <mat-label>Aisgnar motociclista</mat-label>
+    <mat-select [formControl]="motorcyclistControl">
+      <mat-option *ngFor="let motorcyclist of motorcyclists$|async" [value]="motorcyclist.id">{{motorcyclist.name}} {{motorcyclist.surnames}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions class="d-flex  justify-content-sm-between">
+  <div></div>
+ <div>
+  <button mat-flat-button>
+    Cancelar
+  </button>
+  <button mat-flat-button color="accent" (click)="toAssign()">
+    Asignar
+  </button>
+ </div>
+</mat-dialog-actions>

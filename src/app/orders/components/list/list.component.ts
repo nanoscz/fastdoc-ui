@@ -5,6 +5,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { MatDialog } from '@angular/material/dialog';
+import { AssignDialogComponent } from '../assign-dialog/assign-dialog.component';
 
 @Component({
   selector: 'app-list',
@@ -21,7 +23,8 @@ export class ListComponent implements OnInit {
     private router: Router,
     private sessionService: SessionService,
     private shippingDocumentService: ShippingDocumentService,
-    private shippingDetailService: ShippingDetailService
+    private shippingDetailService: ShippingDetailService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -29,6 +32,10 @@ export class ListComponent implements OnInit {
     this.isEmployee = this.sessionService.isEmployee();
     this.isMotorcyclist = this.sessionService.isMotorcyclist();
 
+    this.getShippingDocuments()
+  }
+
+  getShippingDocuments() {
     this.shippingDocumentService.getAll().pipe(
       map((data) => this.filterBySession(data))
     ).subscribe((list) => {
@@ -46,8 +53,18 @@ export class ListComponent implements OnInit {
     }
     return data
   }
-  toAssign() {
 
+  toAssign(data) {
+    const dialogRef = this.dialog.open(AssignDialogComponent, {
+      width: '400px',
+      data
+    })
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.getShippingDocuments()
+      }
+    })
   }
 
   onRegister() {

@@ -9,3 +9,30 @@
 table {
   width: 100%;
 }
+
+.badge-not-assigned {
+  border: 2px solid #1F6FEB;
+  border-radius: 5px;
+  color: #1F6FEB;
+  padding: 3px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.badge-assigned {
+  border: 2px solid #656565;
+  border-radius: 5px;
+  color: #656565;
+  padding: 5px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.badge-completed {
+  border: 2px solid #00AF33;
+  border-radius: 5px;
+  color: #00AF33;
+  padding: 5px;
+  font-size: 12px;
+  font-weight: 500;
+}

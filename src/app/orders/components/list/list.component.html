@@ -29,15 +29,15 @@
             <ng-container matColumnDef="state">
               <th mat-header-cell *matHeaderCellDef> Estado </th>
               <td mat-cell *matCellDef="let element">
-                <span *ngIf="element.motorcycleId === null"> Sin Asignar</span>
-                <span *ngIf="element.motorcycleId">Pendiente</span>
+                <span class="badge-not-assigned" *ngIf="element.motorcyclistId === null"> SIN ASIGNAR</span>
+                <span class="badge-assigned" *ngIf="element.motorcyclistId">ASIGNADO</span>
               </td>
             </ng-container>
 
             <ng-container matColumnDef="action">
               <th mat-header-cell *matHeaderCellDef> </th>
               <td mat-cell *matCellDef="let element">
-                <button mat-flat-button color="accent" (click)="toAssign()" *ngIf="isEmployee">
+                <button mat-flat-button color="accent" [disabled]="element.motorcyclistId" (click)="toAssign(element)" *ngIf="isEmployee">
                   Asignar
                 </button>
               </td>

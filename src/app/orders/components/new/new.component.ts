@@ -112,7 +112,7 @@ export class NewComponent implements OnInit {
         payment: documentDelivery.payment,
         clientId: session.id,
         employeeId: null,
-        motorcycleId: null,
+        motorcyclistId: null,
         shippingDetailId: res.id
       }))
     ).subscribe(() =>  {
