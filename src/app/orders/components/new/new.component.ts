@@ -66,12 +66,12 @@ export class NewComponent implements OnInit {
         payment: ['15']
       }),
       documentDetail: this.fb.group({
-        originName: ['asdadasd', Validators.required],
-        destinationName: ['asdasdas', Validators.required],
-        originPhone: ['1111111', Validators.required],
-        destinationPhone: ['222222', Validators.required],
+        originName: ['John Dee', Validators.required],
+        destinationName: ['Alexa Dae', Validators.required],
+        originPhone: ['79476808', Validators.required],
+        destinationPhone: ['79476808', Validators.required],
         description: [''],
-        typeOfDocument: ['', Validators.required]
+        typeOfDocument: ['Sobre', Validators.required]
       })
     })
 
